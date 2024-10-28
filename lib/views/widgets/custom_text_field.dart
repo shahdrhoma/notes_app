@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-      {this.hintText,
-      this.onChanged,
-      this.obscureText = false,
-      this.inputType});
+  CustomTextField({
+    super.key,
+    this.hintText,
+    this.onChanged,
+    this.obscureText = false,
+    this.inputType,
+    this.maxLines = 1,
+  });
   String? hintText;
+  final int maxLines;
   bool? obscureText;
   Function(String)? onChanged;
   TextInputType? inputType;
@@ -18,6 +22,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: inputType,
       obscureText: obscureText!,
       onChanged: onChanged,
+      maxLines: maxLines,
       cursorHeight: 30,
       decoration: InputDecoration(
         hintText: hintText,
